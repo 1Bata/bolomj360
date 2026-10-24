@@ -1,0 +1,31 @@
+{
+  "name": "bolomj360",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:api": "pnpm --filter bolomj360_api dev",
+    "dev:ui": "pnpm run codegen && pnpm --filter bolomj360_ui dev",
+    "dev:standalone": "pnpm --filter bolomj360_ui dev:standalone",
+    "codegen": "pnpm --filter bolomj360_api schema:print && pnpm --filter bolomj360_ui codegen",
+    "build": "pnpm run codegen && pnpm --filter bolomj360_api build && pnpm --filter bolomj360_ui build",
+    "check": "pnpm run codegen && pnpm --filter bolomj360_api check && pnpm --filter bolomj360_ui check",
+    "lint": "oxlint",
+    "fmt": "oxfmt"
+  },
+  "devDependencies": {
+    "oxfmt": "^0.71.0",
+    "oxlint": "^1.86.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "react": "18.3.1",
+      "react-dom": "18.3.1",
+      "@sentry/node": "10.76.2",
+      "@opentelemetry/api": "1.9.1",
+      "@opentelemetry/instrumentation": "0.220.0",
+      "@opentelemetry/sdk-trace-base": "2.12.0"
+    }
+  },
+  "packageManager": "pnpm@12.3.4"
+}
